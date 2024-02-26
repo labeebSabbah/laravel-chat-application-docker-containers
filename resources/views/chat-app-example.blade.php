@@ -20,9 +20,7 @@
   <div class="container" id="app">
     <br>
     <br>
-    <p class="text-center p-0 m-0">Laravel WebSockets</p>
     <h1 class="text-center p-0 m-0">Chat App Example</h1>
-    <p class="text-center "><a href="https://ahtcloud.com">By AHT Cloud | Emad Zaamout</a></p>
     <div class="card mt-4">
       <div class="card-header p-2">
         <form>
@@ -64,7 +62,7 @@
             </div>
             <div class="col-12">
               <div class="form-group">
-                <textarea v-model="message" placeholder="Your message ..." class="form-control" rows="3"></textarea>
+                <textarea id="message" v-model="message" placeholder="Your message ..." class="form-control" rows="3"></textarea>
               </div>
             </div>
           </div>
@@ -179,6 +177,8 @@
               name: this.name
             }).fail(() => {
               alert("Error sending event.")
+            }).success(() => {
+                document.getElementById("message").innerHTML = "";
             });
           }
         }
